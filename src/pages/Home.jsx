@@ -38,7 +38,7 @@ function Home() {
 
 
           <a
-            href=""
+            href="/Resume (1).pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="

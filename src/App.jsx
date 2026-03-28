@@ -1,26 +1,45 @@
-import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Skills from "./pages/Skills";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact"
+import Home from "./components/Home";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen scroll-smooth">
+      
+      {/* Navbar */}
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-         <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-      </Routes>
+      {/* Main Sections */}
+      <main>
+        
+        <section id="home" className="min-h-screen flex items-center justify-center">
+          <Home />
+        </section>
 
+        <section id="about" className="min-h-screen flex items-center justify-center">
+          <About />
+        </section>
+
+        <section id="skills" className="min-h-screen flex items-center justify-center">
+          <Skills />
+        </section>
+
+        <section id="projects" className="min-h-screen flex items-center justify-center">
+          <Projects />
+        </section>
+
+        <section id="contact" className="min-h-screen flex items-center justify-center">
+          <Contact />
+        </section>
+
+      </main>
+
+      {/* Footer */}
       <Footer />
     </div>
   );

@@ -45,3 +45,13 @@
 .animate-float {
   animation: floatImage 4s ease-in-out infinite;
 }
+
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

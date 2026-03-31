@@ -1,6 +1,7 @@
 import card1 from "../assets/card-1.png"
 import card2 from "../assets/card-2.png"
 import card3 from "../assets/card-3.png"
+import card4 from "../assets/card-4.png"
 
 function Projects() {
   return (
@@ -327,7 +328,7 @@ function Projects() {
   <div className="h-60 overflow-hidden relative">
     
     <img
-      src="/project1.png"  // ✅ add your image here
+      src={card4}
       alt="Project"
       className="
         w-full h-full object-cover
@@ -388,15 +389,22 @@ function Projects() {
 
     {/* LINKS */}
     <div className="flex gap-6 text-sm">
-      <a href="#" className="text-green-400 hover:underline">
+      <a href="https://ecommerce-frontend-21nm.vercel.app/" className="text-green-400 hover:underline">
         Live Demo →
       </a>
 
       <a
-        href="#"
+        href="https://github.com/dhanush8714/ecommerce-frontend"
         className="text-gray-400 hover:text-green-400 transition"
       >
-        GitHub →
+        Frontend GitHub →
+      </a>
+
+      <a
+        href="https://github.com/dhanush8714/ecommerce-backend"
+        className="text-gray-400 hover:text-green-400 transition"
+      >
+        Backend GitHub →
       </a>
     </div>
   </div>

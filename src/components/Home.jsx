@@ -51,7 +51,7 @@ function Home() {
 
             {/* RESUME BUTTON */}
             <a
-              href="/Resume .pdf"
+              href="/DHANUSH_MP_FullStack_Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -92,7 +92,7 @@ function Home() {
             "
           >
             <img
-              src="/1750157003806.jpg"
+              src="/My_image.png"
               alt="Dhanush profile"
               className="w-full h-full object-cover"
             />

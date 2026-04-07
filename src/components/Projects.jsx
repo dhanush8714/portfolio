@@ -104,10 +104,17 @@ function Projects() {
       </a>
 
       <a
-        href="#"
+        href="https://github.com/dhanush8714/CRM_Frontend"
         className="text-gray-400 hover:text-green-400 transition"
       >
-        GitHub →
+        Frontend GitHub →
+      </a>
+
+      <a
+        href="https://github.com/dhanush8714/CRM_Backend"
+        className="text-gray-400 hover:text-green-400 transition"
+      >
+        Backend GitHub →
       </a>
     </div>
   </div>

@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div className="bg-black text-white min-h-screen scroll-smooth">
+    <div className="bg-black text-white min-h-screen scroll-smooth overflow-x-hidden w-full">
       
       {/* Navbar */}
       <Navbar />

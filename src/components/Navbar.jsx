@@ -12,78 +12,83 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-black/50 backdrop-blur border-b border-zinc-800 z-50">
+    <nav className="fixed top-0 w-full z-50 overflow-x-hidden">
       
-       {/* 🔥 TOP GLOW LINE */}
+      {/* 🔥 TOP GLOW */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-60" />
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="bg-black/60 backdrop-blur-xl border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
 
-        {/* LOGO */}
-        <a
-          href="#home"
-          className="font-semibold text-lg text-green-500"
-          onClick={() => setOpen(false)}
-        >
-          Dhanush Mp
-        </a>
+          {/* LOGO */}
+          <a
+            href="#home"
+            onClick={() => setOpen(false)}
+            className="text-lg sm:text-xl font-bold text-green-500"
+          >
+            Dhanush Mp
+          </a>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex gap-8 text-sm text-gray-400">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.link}
-              className="hover:text-green-500 transition"
-              onClick={() => setOpen(false)}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
+          {/* 💻 DESKTOP MENU */}
+          <div className="hidden md:flex gap-8 text-sm text-gray-300">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                className="hover:text-green-400 transition"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
 
-        {/* TOGGLE BUTTON (MOBILE) */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white focus:outline-none"
-        >
-          <div className="space-y-1">
+          {/* 📱 MOBILE TOGGLE */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden relative w-8 h-8 flex items-center justify-center"
+          >
+            {/* LINE 1 */}
             <span
-              className={`block h-0.5 w-6 bg-white transition ${
-                open ? "rotate-45 translate-y-1.5" : ""
+              className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ${
+                open ? "rotate-45" : "-translate-y-2"
               }`}
             />
+            {/* LINE 2 */}
             <span
-              className={`block h-0.5 w-6 bg-white transition ${
+              className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ${
                 open ? "opacity-0" : ""
               }`}
             />
+            {/* LINE 3 */}
             <span
-              className={`block h-0.5 w-6 bg-white transition ${
-                open ? "-rotate-45 -translate-y-1.5" : ""
+              className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ${
+                open ? "-rotate-45" : "translate-y-2"
               }`}
             />
-          </div>
-        </button>
-      </div>
+          </button>
+        </div>
 
-      {/* MOBILE MENU */}
-      {open && (
-        <div className="md:hidden bg-black border-t border-zinc-800">
-          <div className="flex flex-col px-6 py-4 space-y-4 text-gray-400">
+        {/* 📱 MOBILE MENU (ANIMATED) */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-500 ${
+            open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="px-6 pb-6 flex flex-col gap-5 text-gray-300 bg-black/80 backdrop-blur-xl">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.link}
                 onClick={() => setOpen(false)}
-                className="hover:text-green-500 transition"
+                className="text-lg hover:text-green-400 transition"
               >
                 {item.name}
               </a>
             ))}
           </div>
         </div>
-      )}
+
+      </div>
     </nav>
   );
 }

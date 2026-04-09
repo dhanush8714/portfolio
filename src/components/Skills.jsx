@@ -15,146 +15,95 @@ import {
   SiPostgresql,
   SiExpress,
   SiRedux,
-  SiJsonwebtokens,
 } from "react-icons/si";
 
 import { VscVscode } from "react-icons/vsc";
 
 function Skills() {
-  return (
-    <section
-      id="skills"
-      className="min-h-screen bg-black text-white relative overflow-hidden pt-24 flex items-center"
-    >
-      {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black to-black blur-3xl" />
+  const techStack = [
+    [<FaHtml5 className="text-orange-500" />, "HTML"],
+    [<FaCss3Alt className="text-blue-500" />, "CSS"],
+    [<FaJs className="text-yellow-400" />, "JavaScript"],
+    [<FaReact className="text-blue-400" />, "React"],
+    [<SiNextdotjs />, "Next.js"],
+    [<SiRedux className="text-purple-500" />, "Redux"],
+    [<SiTailwindcss className="text-cyan-400" />, "Tailwind"],
+    [<FaNodeJs className="text-green-500" />, "Node.js"],
+    [<SiExpress />, "Express"],
+    [<SiMongodb className="text-green-500" />, "MongoDB"],
+    [<SiPostgresql className="text-blue-400" />, "PostgreSQL"],
+    [<FaGitAlt className="text-orange-500" />, "Git"],
+    [<FaGithub />, "GitHub"],
+    [<VscVscode className="text-blue-400" />, "VS Code"],
+  ];
 
-      <div className="relative max-w-7xl mx-auto px-6 w-full">
-        
+  return (
+    <section className="py-20">
+      
+      <div className="max-w-5xl mx-auto relative overflow-hidden px-4 text-center">
+
         {/* TITLE */}
-        <h2 className="text-3xl md:text-4xl font-bold text-green-400 mb-4 text-center">
-          Skills
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-green-400">
+          <span className="text-white">My</span>
+          <span className="text-green-400 drop-shadow-[0_0_15px_rgba(34,197,94,0.7)]">Tech Stack</span>
         </h2>
 
-        <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+        {/* SUBTITLE */}
+        <p className="text-gray-400 max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
           Technologies and tools I use to build scalable and modern web applications.
         </p>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* GRADIENT FADE EDGES */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-black to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-black to-transparent z-10" />
 
-          {/* FRONTEND */}
-          <div className="group relative p-6 rounded-xl bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 transition-all duration-500 hover:border-green-400 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(34,197,94,0.25)]">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-            <div className="relative z-10">
-              <h3 className="text-lg font-semibold text-green-300 mb-4 group-hover:text-green-400 transition">
-                Frontend
-              </h3>
-
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaReact className="text-blue-400 group-hover:rotate-6 transition" /> React.js
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiNextdotjs /> Next.js
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaJs className="text-yellow-400" /> JavaScript
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaHtml5 className="text-orange-500" /> HTML
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaCss3Alt className="text-blue-500" /> CSS
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiTailwindcss className="text-cyan-400" /> Tailwind CSS
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiRedux className="text-purple-500" /> Redux
-                </li>
-              </ul>
-            </div>
+        {/* ROW 1 */}
+        <div className="overflow-hidden mb-6">
+          <div className="flex w-max animate-marquee gap-6">
+            {[...techStack, ...techStack].map(([icon, name], i) => (
+              <SkillPill key={i} icon={icon} name={name} />
+            ))}
           </div>
-
-          {/* BACKEND */}
-          <div className="group relative p-6 rounded-xl bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 transition-all duration-500 hover:border-green-400 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(34,197,94,0.25)]">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-            <div className="relative z-10">
-              <h3 className="text-lg font-semibold text-green-300 mb-4 group-hover:text-green-400 transition">
-                Backend
-              </h3>
-
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaNodeJs className="text-green-500" /> Node.js
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiExpress /> Express.js
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  ⚡ REST APIs
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiJsonwebtokens className="text-pink-500" /> JWT Authentication
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* DATABASE */}
-          <div className="group relative p-6 rounded-xl bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 transition-all duration-500 hover:border-green-400 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(34,197,94,0.25)]">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-            <div className="relative z-10">
-              <h3 className="text-lg font-semibold text-green-300 mb-4 group-hover:text-green-400 transition">
-                Database
-              </h3>
-
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiMongodb className="text-green-500" /> MongoDB
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiMongodb className="text-green-500" /> Mongoose
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <SiPostgresql className="text-blue-400" /> PostgreSQL
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* TOOLS */}
-          <div className="group relative p-6 rounded-xl bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 transition-all duration-500 hover:border-green-400 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(34,197,94,0.25)]">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
-            <div className="relative z-10">
-              <h3 className="text-lg font-semibold text-green-300 mb-4 group-hover:text-green-400 transition">
-                Tools & Concepts
-              </h3>
-
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaGitAlt className="text-orange-500" /> Git
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  <FaGithub /> GitHub
-                </li>
-                 <li className="flex items-center gap-2 text-gray-300">
-  <VscVscode className="text-blue-400" /> VS Code
-</li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  ⚡ Clean Architecture
-                </li>
-                <li className="flex items-center gap-2 text-gray-300">
-                  ⚡ Agile
-                </li>
-              </ul>
-            </div>
-          </div>
-
         </div>
+
+        {/* ROW 2 */}
+        <div className="overflow-hidden">
+          <div className="flex w-max animate-marquee-reverse gap-6">
+            {[...techStack, ...techStack].map(([icon, name], i) => (
+              <SkillPill key={i} icon={icon} name={name} />
+            ))}
+          </div>
+        </div>
+
       </div>
+
     </section>
+  );
+}
+
+/* 🔥 SKILL PILL */
+function SkillPill({ icon, name }) {
+  return (
+    <div
+      className="
+        flex items-center gap-3
+        px-6 py-3
+        rounded-full
+        bg-zinc-900/70 border border-zinc-800
+
+        text-sm text-gray-300
+
+        transition-all duration-300
+
+        hover:border-green-400
+        hover:text-white
+        hover:scale-105
+        hover:shadow-[0_10px_30px_rgba(34,197,94,0.2)]
+      "
+    >
+      <span className="text-lg">{icon}</span>
+      {name}
+    </div>
   );
 }
 

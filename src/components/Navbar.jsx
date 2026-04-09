@@ -12,7 +12,11 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-black/80 backdrop-blur border-b border-zinc-800 z-50">
+    <nav className="fixed top-0 w-full bg-black/50 backdrop-blur border-b border-zinc-800 z-50">
+      
+       {/* 🔥 TOP GLOW LINE */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-60" />
+
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* LOGO */}

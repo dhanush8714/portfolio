@@ -1,34 +1,27 @@
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.animate-fade-up {
-  animation: fadeUp 0.9s ease-out forwards;
-}
-
-@keyframes letterFadeUp {
+/* 🔤 LETTER ANIMATION (LOOP) */
+@keyframes letterFade {
   0% {
     opacity: 0;
     transform: translateY(20px);
   }
-  100% {
+  20% {
     opacity: 1;
     transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
   }
 }
 
 .animate-letter {
   display: inline-block;
-  opacity: 0;
-  animation: letterFadeUp 0.6s ease-out forwards;
+  animation: letterFade 3s ease-in-out infinite;
 }
+
 
 @keyframes floatImage {
   0% {
@@ -47,11 +40,44 @@
 }
 
 
-/* @keyframes slide {
+
+@keyframes marquee {
   0% {
-    left: -100%;
+    transform: translateX(0%);
   }
   100% {
-    left: 100%;
+    transform: translateX(-50%);
   }
-} */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 50s linear infinite;
+}
+
+/* OPTIONAL: pause on hover */
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}

@@ -2,130 +2,97 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 function Contact() {
+  const contacts = [
+    {
+      icon: <MdEmail />,
+      title: "Email",
+      value: "dhanushmp52@gmail.com",
+      link: "mailto:dhanushmp52@gmail.com",
+    },
+    {
+      icon: <FaGithub />,
+      title: "GitHub",
+      value: "github.com/dhanush8714",
+      link: "https://github.com/dhanush8714",
+    },
+    {
+      icon: <FaLinkedin />,
+      title: "LinkedIn",
+      value: "linkedin.com/in/dhanush-mp",
+      link: "https://www.linkedin.com/in/dhanush-mp",
+    },
+  ];
+
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center pt-24 px-6 max-w-6xl mx-auto relative"
+      className="relative min-h-screen flex items-center pt-24 px-6 max-w-6xl mx-auto"
     >
-      {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-black to-black blur-3xl" />
+      {/*  BACKGROUND GLOW */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-120px] left-[-120px] w-[400px] h-[400px] bg-green-500/10 blur-[140px] rounded-full" />
+        <div className="absolute bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-green-400/10 blur-[140px] rounded-full" />
+      </div>
 
-      <div className="w-full text-center relative z-10">
+      <div className="w-full text-center">
         
         {/* TITLE */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-green-400">
-          Let’s Work Together
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <span className="text-white">Let’s </span>
+          <span className="text-green-400 drop-shadow-[0_0_12px_rgba(34,197,94,0.7)]">
+            Connect
+          </span>
         </h2>
 
-        {/* CTA */}
-        <p className="text-gray-400 mb-12 text-lg max-w-2xl mx-auto">
-          I am currently seeking a full-time opportunity as a Full Stack Developer where I can contribute to building scalable applications and grow as a developer. 
-          Feel free to reach out if you have an opportunity or would like to collaborate.
+        {/* DESCRIPTION */}
+        <p className="text-gray-400 mb-14 text-lg max-w-2xl mx-auto leading-relaxed">
+          I’m open to full-time opportunities and collaborations. 
+          If you have a project or role in mind, let’s build something amazing together.
         </p>
 
-        {/* CONTACT GRID */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* GRID */}
+        <div className="grid md:grid-cols-3 gap-10">
 
-          {/* EMAIL */}
-          <div
-            className="
-              group relative p-6 rounded-xl
-              bg-zinc-900/40 backdrop-blur-lg
-              border border-zinc-800
-              transition-all duration-500
+          {contacts.map((item, index) => (
+            <a
+              key={index}
+              href={item.link}
+              target="_blank"
+              className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-green-500/30 to-transparent transition duration-500 hover:scale-[1.04]"
+            >
+              {/* CARD */}
+              <div className="relative rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 p-8 text-center transition duration-500 group-hover:-translate-y-3 group-hover:shadow-[0_40px_120px_rgba(34,197,94,0.25)]">
 
-              hover:-translate-y-3
-              hover:scale-[1.02]
-              hover:border-green-400
-              hover:shadow-[0_25px_80px_rgba(34,197,94,0.25)]
-            "
-          >
-            {/* MOVING LIGHT */}
-            <div className="absolute inset-0 pointer-events-none before:absolute before:top-0 before:left-[-100%] before:w-[200%] before:h-[2px] before:bg-gradient-to-r from-transparent via-green-400 to-transparent before:opacity-0 group-hover:opacity-100 before:animate-[slide_2s_linear_infinite]" />
+                {/* ICON BOX */}
+                <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-xl bg-green-500/10 text-green-400 text-2xl mb-4 group-hover:scale-110 transition">
+                  {item.icon}
+                </div>
 
-            <div className="flex flex-col items-center gap-3 relative z-10">
-              <MdEmail className="text-3xl text-green-400 group-hover:scale-110 transition" />
-              <h3 className="font-semibold text-lg">Email</h3>
-              <p className="text-gray-400 text-sm break-all">
-                dhanushmp52@gmail.com
-              </p>
-            </div>
-          </div>
+                {/* TITLE */}
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {item.title}
+                </h3>
 
-          {/* GITHUB */}
-          <div
-            className="
-              group relative p-6 rounded-xl
-              bg-zinc-900/40 backdrop-blur-lg
-              border border-zinc-800
-              transition-all duration-500
+                {/* VALUE */}
+                <p className="text-gray-400 text-sm group-hover:text-green-400 transition break-all">
+                  {item.value}
+                </p>
 
-              hover:-translate-y-3
-              hover:scale-[1.02]
-              hover:border-green-400
-              hover:shadow-[0_25px_80px_rgba(34,197,94,0.25)]
-            "
-          >
-            <div className="absolute inset-0 pointer-events-none before:absolute before:top-0 before:left-[-100%] before:w-[200%] before:h-[2px] before:bg-gradient-to-r from-transparent via-green-400 to-transparent before:opacity-0 group-hover:opacity-100 before:animate-[slide_2s_linear_infinite]" />
-
-            <div className="flex flex-col items-center gap-3 relative z-10">
-              <FaGithub className="text-3xl group-hover:scale-110 transition" />
-              <h3 className="font-semibold text-lg">GitHub</h3>
-              <a
-                href="https://github.com/dhanush8714"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 text-sm hover:text-green-400 transition"
-              >
-                github.com/dhanush8714
-              </a>
-            </div>
-          </div>
-
-          {/* LINKEDIN */}
-          <div
-            className="
-              group relative p-6 rounded-xl
-              bg-zinc-900/40 backdrop-blur-lg
-              border border-zinc-800
-              transition-all duration-500
-
-              hover:-translate-y-3
-              hover:scale-[1.02]
-              hover:border-green-400
-              hover:shadow-[0_25px_80px_rgba(34,197,94,0.25)]
-            "
-          >
-            <div className="absolute inset-0 pointer-events-none before:absolute before:top-0 before:left-[-100%] before:w-[200%] before:h-[2px] before:bg-gradient-to-r from-transparent via-green-400 to-transparent before:opacity-0 group-hover:opacity-100 before:animate-[slide_2s_linear_infinite]" />
-
-            <div className="flex flex-col items-center gap-3 relative z-10">
-              <FaLinkedin className="text-3xl text-blue-400 group-hover:scale-110 transition" />
-              <h3 className="font-semibold text-lg">LinkedIn</h3>
-              <a
-                href="https://www.linkedin.com/in/dhanush-mp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 text-sm hover:text-green-400 transition"
-              >
-                linkedin.com/in/dhanush-mp
-              </a>
-            </div>
-          </div>
+                {/*  HOVER GLOW */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-green-500/5 blur-xl" />
+              </div>
+            </a>
+          ))}
 
         </div>
 
         {/* CTA BUTTON */}
-        <div className="mt-12">
+        <div className="mt-16">
           <a
             href="mailto:dhanushmp52@gmail.com"
-            className="
-              inline-block px-8 py-3 rounded-lg
-              bg-green-500 text-black font-semibold
-              hover:bg-green-400 transition
-              shadow-[0_10px_40px_rgba(34,197,94,0.3)]
-            "
+            className="relative inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-full bg-green-500 text-black transition-all duration-300 hover:scale-105 hover:text-white shadow-[0_10px_40px_rgba(34,197,94,0.5)] hover:shadow-[0_20px_70px_rgba(34,197,94,0.8)]"
           >
-            Send Message
+            <span>Send Message</span>
           </a>
         </div>
 

@@ -1,22 +1,21 @@
+import { TypeAnimation } from "react-type-animation";
+
 function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-24 relative"
+      className="min-h-screen flex items-center pt-24 relative overflow-hidden"
     >
-      {/* BACKGROUND GLOW */}
-      <div
-        className="absolute left-0 top-0 h-full w-[40%] 
-        bg-gradient-to-r from-green-700/60 
-        via-green-700/20 to-transparent 
-        blur-2xl"
-      />
+      {/* 🌟 BACKGROUND GLOW */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] bg-green-500/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-green-400/20 rounded-full blur-[120px]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        
         {/* LEFT CONTENT */}
-        <div>
-          {/* NAME ANIMATION */}
+        <div className="backdrop-blur-sm">
+          {/* NAME */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {"Hi, I'm Dhanush Mp".split("").map((char, index) => (
               <span
@@ -29,52 +28,45 @@ function Home() {
             ))}
           </h1>
 
-          {/* ROLE */}
-          <h2 className="text-xl md:text-2xl text-green-500 mb-4 font-semibold">
-            MERN Stack Developer
+          {/* 🔥 CHANGING ROLE */}
+          <h2 className="text-xl md:text-2xl mb-4 font-semibold">
+            <span className="text-white">I'm a </span>
+            <span className="text-green-500 drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]">
+              <TypeAnimation
+                sequence={[
+                  "MERN Stack Developer",
+                  2000,
+                  "Full Stack Developer",
+                  2000,
+                  "Frontend Developer",
+                  2000,
+                  "Backend Developer",
+                  2000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h2>
 
           {/* DESCRIPTION */}
-          <p
-            className="
-              text-gray-400 mb-8 max-w-xl
-              opacity-0 animate-fade-up
-              [animation-delay:600ms]
-            "
-          >
-            I build scalable web applications using MongoDB, Express, React, and Node.js. 
-            Passionate about creating clean UI and solving real-world problems.
+          <p className="text-gray-400 mb-8 max-w-xl">
+            I build scalable web applications using MongoDB, Express, React, and
+            Node.js. Passionate about creating clean UI and solving real-world
+            problems.
           </p>
 
-          {/* BUTTONS */}
+          {/* BUTTON */}
           <div className="flex gap-4 flex-wrap">
-
-            {/* RESUME BUTTON */}
             <a
               href="/DHANUSH_MP_FullStack_Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="
-                relative inline-flex items-center gap-2
-                px-6 py-3 font-semibold rounded-lg
-                bg-green-600 text-black
-                overflow-hidden
-                transition-all duration-300
-                hover:text-white
-              "
+              className="relative inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg bg-green-600 text-black overflow-hidden transition-all duration-300 hover:text-white shadow-[0_10px_30px_rgba(34,197,94,0.4)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.7)]"
             >
-              <span
-                className="
-                  absolute inset-0
-                  bg-gradient-to-r from-green-400 to-green-700
-                  translate-x-[-100%]
-                  hover:translate-x-0
-                  transition-transform duration-300
-                "
-              />
+              <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-700 translate-x-[-100%] hover:translate-x-0 transition-transform duration-300" />
               <span className="relative z-10">View Resume →</span>
             </a>
-
           </div>
         </div>
 
@@ -98,7 +90,6 @@ function Home() {
             />
           </div>
         </div>
-
       </div>
     </section>
   );
